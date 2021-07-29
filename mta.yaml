@@ -221,10 +221,10 @@ resources:
   # SuccessFactors Extensibility Service
   #####################################################################################################################
   - name: sfextension-service
-    type: org.cloudfoundry.managed-service
-    #type: org.cloudfoundry.existing-service
+    #type: org.cloudfoundry.managed-service
+    type: org.cloudfoundry.existing-service
     parameters:
       service: sap-successfactors-extensibility
       service-plan: api-access
       config:
-        systemName: SFPART058297 # <-- Provide your system name "SFPART046183" is dummy name
+        systemName: SF-CW26 # <-- Provide your system name "SFPART046183" is dummy name
