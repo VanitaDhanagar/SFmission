@@ -221,8 +221,8 @@ resources:
   # SuccessFactors Extensibility Service
   #####################################################################################################################
   - name: sfextension-service
-    type: org.cloudfoundry.managed-service
-    #type: org.cloudfoundry.existing-service
+    #type: org.cloudfoundry.managed-service
+    type: org.cloudfoundry.existing-service
     parameters:
       service: sap-successfactors-extensibility
       service-plan: api-access
