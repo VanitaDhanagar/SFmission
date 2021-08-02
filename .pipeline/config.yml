@@ -17,6 +17,7 @@ stages:
     cfCredentialsId: "cloud"
     tmsUpload: false
     mtaDeployParameters: "-f --version-rule ALL"
+    cloudFoundryDeploy: true
   Acceptance: null
 steps:
   artifactPrepareVersion:
