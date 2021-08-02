@@ -1,0 +1,23 @@
+---
+general:
+  pipeline: "sap-cloud-sdk"
+  buildTool: "mta"
+stages:
+  Build:
+    mavenExecuteStaticCodeChecks: false
+    npmExecuteLint: false
+  Additional Unit Tests:
+    npmExecuteScripts: false
+    karmaExecuteTests: false
+  Release:
+    cfApiEndpoint: "https://api.cf.eu10.hana.ondemand.com"
+    cfOrg: "testvanita"
+    cfSpace: "dev"
+    cfAppName: ""
+    cfCredentialsId: "cloud"
+    tmsUpload: false
+    mtaDeployParameters: "-f --version-rule ALL"
+  Acceptance: null
+steps:
+  artifactPrepareVersion:
+    versioningType: "cloud_noTag"
