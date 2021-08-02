@@ -1,22 +1,23 @@
---- 
-general: 
-  pipeline: sap-cloud-sdk
-  projectName: cloud-cap-s4ems-bp
-  unsafeMode: false
-stages: 
-  Release: 
-    cloudFoundryDeploy: true
-steps: 
-  artifactPrepareVersion: 
-    buildTool: mta
-    dockerImage: "s4sdk/docker-node-browsers:v15"
-    npmExecute: ~
-  cloudFoundryDeploy: 
-    cloudFoundry: 
-      apiEndpoint: "https://api.cf.eu10.hana.ondemand.com"
-      credentialsId: cloud
-      org: sfmissionorg
-      space: dev
+---
+general:
+  pipeline: "sap-cloud-sdk"
+  buildTool: "mta"
+stages:
+  Build:
+    mavenExecuteStaticCodeChecks: false
+    npmExecuteLint: false
+  Additional Unit Tests:
+    npmExecuteScripts: false
+    karmaExecuteTests: false
+  Release:
+    cfApiEndpoint: "https://api.cf.eu10.hana.ondemand.com"
+    cfOrg: "testvanita"
+    cfSpace: "dev"
+    cfAppName: ""
+    cfCredentialsId: "cloud"
+    tmsUpload: false
     mtaDeployParameters: "-f --version-rule ALL"
-  mtaBuild: 
-    mtaBuildTool: cloudMbt
+  Acceptance: null
+steps:
+  artifactPrepareVersion:
+    versioningType: "cloud_noTag"
